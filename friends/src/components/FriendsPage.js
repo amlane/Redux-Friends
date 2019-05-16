@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import Loader from 'react-loader-spinner';
 
 import { getFriends } from '../actions';
 
@@ -24,6 +25,9 @@ class FriendsPage extends React.Component{
                 <FriendCard key={friend.id} friend={friend} />
             )
         } )}
+        {this.props.fetchingFriends && (
+            <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
+        )}
         </ul>
 
     )

@@ -16,7 +16,7 @@ function App() {
       <nav className="navigation-bar">
         <div className="nav-links"> 
         <NavLink exact to="/">Home</NavLink>{' '}
-        <NavLink to="/friends">Friends</NavLink>{' '}
+        {/* <NavLink to="/friends">Friends</NavLink>{' '} */}
         </div>
         <div>
         <Link to="/login">Log In</Link>{' '}
