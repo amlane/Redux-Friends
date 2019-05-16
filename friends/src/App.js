@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
 
 import PrivateRoute from './PrivateRoute';
 import Login from './components/Login';
@@ -13,16 +13,20 @@ function App() {
   return (
     <Router>
     <div className="App">
-      <nav>
-        <Link to="/">Home</Link>{' '}
-        <Link to="/protected">Friends</Link>{' '}
+      <nav className="navigation-bar">
+        <div className="nav-links"> 
+        <NavLink exact to="/">Home</NavLink>{' '}
+        <NavLink to="/friends">Friends</NavLink>{' '}
+        </div>
+        <div>
         <Link to="/login">Log In</Link>{' '}
         <Link to="/" onClick={logOut}>Log Out</Link>
+        </div>
       </nav>
 
-      <Route path='/' component={Home} />
-      <Route exact path="/login" component={Login} />
-      <PrivateRoute exact path="/protected" component={FriendsPage} />
+      <Route exact path='/' component={Home} />
+      <Route path="/login" component={Login} />
+      <PrivateRoute exact path="/friends" component={FriendsPage} />
     </div>
     </Router>
   );

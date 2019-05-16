@@ -2,6 +2,22 @@
   text-align: center;
 }
 
+.navigation-bar {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.navigation-bar a {
+  padding: 30px;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-links a.active {
+  font-weight: bold;
+}
+
 .friend-card-container {
   display: flex;
   flex-wrap: wrap;
@@ -12,4 +28,13 @@
   border: 1px solid;
   width: 300px;
   margin: 20px;
+  padding: 25px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding: 10px;
 }

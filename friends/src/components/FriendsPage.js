@@ -17,13 +17,15 @@ class FriendsPage extends React.Component{
     render(){
         console.log("Friends: ", this.props.friends)
     return (
-        <div className="friend-card-container">
+
+        <ul className="friend-card-container">
         {this.props.friends.map( friend => {
             return (
                 <FriendCard key={friend.id} friend={friend} />
             )
         } )}
-        </div>
+        </ul>
+
     )
     }
 }
