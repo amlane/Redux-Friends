@@ -32,7 +32,7 @@ class Login extends React.Component {
     render(){
         return (
             <div>
-                <h2>Login Page YAY!</h2>
+                <h2>Please Sign In</h2>
                 <form onSubmit={this.handleClick}>
                     <input
                     type="text"

@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom';
 
 import { getFriends } from '../actions';
 
+import FriendCard from './FriendCard';
+
 class FriendsPage extends React.Component{
 
     componentDidMount(){
@@ -15,15 +17,10 @@ class FriendsPage extends React.Component{
     render(){
         console.log("Friends: ", this.props.friends)
     return (
-        <div>
-         <h2>Hello From the Friends Page</h2>
+        <div className="friend-card-container">
         {this.props.friends.map( friend => {
             return (
-                <div>
-                    <p>{friend.name}</p>
-                    <p>{friend.age}</p>
-                    <p>{friend.email}</p>
-                </div>
+                <FriendCard key={friend.id} friend={friend} />
             )
         } )}
         </div>
