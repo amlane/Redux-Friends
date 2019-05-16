@@ -13,6 +13,15 @@ class Login extends React.Component {
         }
     };
 
+    handleInput = e => {
+        this.setState({ 
+            credentials: {
+                ...this.state.credentials,
+                [e.target.name]: e.target.value
+            }
+         })
+    }
+
     handleClick = e => {
         e.preventDefault();
         console.log("Ouch you clicked me too hard.")
@@ -31,12 +40,14 @@ class Login extends React.Component {
                     name="username"
                     value={this.state.credentials.username}
                     placeholder="...username"
+                    onChange={this.handleInput}
                     />
                     <input
                     type="password"
                     name="password"
                     value={this.state.credentials.password}
                     placeholder="...password"
+                    onChange={this.handleInput}
                     />
                     <button>
                     {this.props.isLoggingIn ? (
