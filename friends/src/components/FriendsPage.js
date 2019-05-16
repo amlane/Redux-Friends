@@ -18,20 +18,19 @@ class FriendsPage extends React.Component{
     render(){
         console.log("Friends: ", this.props.friends)
     return (
-
-        <ul className="friend-card-container">
-        {this.props.friends.map( friend => {
-            return (
-                <FriendCard key={friend.id} friend={friend} />
-            )
-        } )}
-        {this.props.fetchingFriends && (
-            <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
-        )}
-        </ul>
-
-    )
-    }
+        <div>
+            {this.props.fetchingFriends ? (
+            <Loader type="Puff" color="#204963" height="200" width="200" />
+            ) 
+            : <ul className="friend-card-container">
+                {this.props.friends.map( friend => {
+                return (
+                    <FriendCard key={friend.id} friend={friend} />
+                )
+                } )}
+              </ul>}
+    </div>
+    )}
 }
 
 const mapStateToProps = state => ({
