@@ -24,7 +24,6 @@ class Login extends React.Component {
 
     handleClick = e => {
         e.preventDefault();
-        console.log("Ouch you clicked me too hard.")
         this.props.login(this.state.credentials).then(() => {
             this.props.history.push('/protected')
         })

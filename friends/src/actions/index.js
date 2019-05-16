@@ -16,5 +16,22 @@ export const login = creds => dispatch => {
             dispatch({ type: LOGIN_SUCCESSFUL, payload: res.data.payload })
         )
     } )
-    .catch( err => console.log(err) )
+    .catch( err => {
+        console.log(err)
+    } )
+}
+
+export const FETCH_FRIENDS_START = 'FETCH_FRIENDS_START';
+export const FETCH_FRIENDS_SUCCESSFUL = 'FETCH_FRIENDS_SUCCESSFUL';
+export const FETCH_FRIENDS_FAILED = 'FETCH_FRIENDS_FAILED';
+
+export const getFriends = () => dispatch => {
+    dispatch({ type: FETCH_FRIENDS_START });
+    axiosWithAuth()
+    .get('http://localhost:5000/api/friends')
+    .then(res => {
+        console.log(res)
+        // dispatch({FETCH_FRIENDS_SUCCESSFUL, payload: res.data.data})
+    })
+    .catch(err => console.log(err))
 }
