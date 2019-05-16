@@ -17,7 +17,15 @@ class FriendsPage extends React.Component{
     return (
         <div>
          <h2>Hello From the Friends Page</h2>
-        
+        {this.props.friends.map( friend => {
+            return (
+                <div>
+                    <p>{friend.name}</p>
+                    <p>{friend.age}</p>
+                    <p>{friend.email}</p>
+                </div>
+            )
+        } )}
         </div>
     )
     }

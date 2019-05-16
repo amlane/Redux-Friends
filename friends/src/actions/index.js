@@ -31,7 +31,7 @@ export const getFriends = () => dispatch => {
     .get('http://localhost:5000/api/friends')
     .then(res => {
         console.log(res)
-        dispatch({ type: FETCH_FRIENDS_SUCCESSFUL, payload: res.data.data})
+        dispatch({ type: FETCH_FRIENDS_SUCCESSFUL, payload: res.data })
     })
     .catch(err => console.log(err))
 }
