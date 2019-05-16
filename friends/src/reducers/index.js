@@ -1,7 +1,8 @@
-
+import { LOGIN_START, LOGIN_SUCCESSFUL, LOGIN_FAILED } from '../actions';
 
 const initialState = {
-    friend: []
+    friend: [],
+    isLoggingIn: false
 }
 
 const reducer = (state = initialState, action) => {
