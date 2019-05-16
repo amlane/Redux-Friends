@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import Login from './components/Login';
+import Home from './components/HomePage';
 
 import './styles/App.css';
 
@@ -9,9 +10,13 @@ function App() {
   return (
     <Router>
     <div className="App">
-      <h1>Welcome to Friends</h1>
+      <nav>
+        <Link to="/">Home</Link>{' '}
+        <Link to="/login">Log In</Link>
+      </nav>
 
-      <Route path="/login" component={Login} />
+      <Route path='/' component={Home} />
+      <Route exact path="/login" component={Login} />
     </div>
     </Router>
   );
