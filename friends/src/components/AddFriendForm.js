@@ -7,15 +7,13 @@ class AddFriendForm extends React.Component{
     constructor(){
         super();
         this.state = {
-         newFriend: {
          name: "",
          age: "",
          email: ""
-            }
         }
     }
+
     handleInput = e => {
-        console.log(e.target.name)
         this.setState({ 
             [e.target.name]: e.target.value
          })
@@ -23,9 +21,10 @@ class AddFriendForm extends React.Component{
 
     handleSubmit = e => {
         e.preventDefault();
-        if(!this.state.newFriend) return;
-        this.props.addFriend(this.state.newFriend)
-        this.setState({ newFriend: '' })
+        if(this.state.name === "" || this.state.age === "" || this.state.email === "") return;
+        this.props.addFriend(this.state)
+        this.setState({ name: "", age: "", email: "" })
+        window.location.pathname = "/friends"
     }
 
     render(){
@@ -36,19 +35,19 @@ class AddFriendForm extends React.Component{
                     <input
                     placeholder="name"
                     name="name"
-                    value={this.state.newFriend.name}
+                    value={this.state.name}
                     onChange={this.handleInput}
                      />
                     <input
                     placeholder="age"
                     name="age"
-                    value={this.state.newFriend.age}
+                    value={this.state.age}
                     onChange={this.handleInput}
                     />
                     <input 
                     placeholder="email"
                     name="email"
-                    value={this.state.newFriend.email}
+                    value={this.state.email}
                     onChange={this.handleInput}
                     />
                     <button>+</button>
