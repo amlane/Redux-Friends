@@ -62,13 +62,13 @@ function authenticator(req, res, next) {
 
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
-  if (username === 'Lambda School' && password === 'i<3Lambd4') {
+  if (username === 'Lambda School' && password === '123') {
     req.loggedIn = true;
     setTimeout(() => {
     res.status(200).json({
       payload: token
     });
-  }, 2000);
+  }, 3000);
   } else {
     res
       .status(403)
@@ -79,7 +79,7 @@ app.post('/api/login', (req, res) => {
 app.get('/api/friends', authenticator, (req, res) => {
   setTimeout(() => {
     res.send(friends);
-  }, 1000);
+  }, 2000);
 });
 
 app.get('/api/friends/:id', authenticator, (req, res) => {

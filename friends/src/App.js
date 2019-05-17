@@ -1,39 +1,50 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, NavLink, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import PrivateRoute from './PrivateRoute';
 import Login from './components/Login';
 import Home from './components/HomePage';
 import FriendsPage from './components/FriendsPage';
 
+// import { logout } from './actions';
+
 import './styles/App.css';
 
-function App() {
+class App extends React.Component{
 
-  return (
-    <Router>
-    <div className="App">
-      <nav className="navigation-bar">
-        <div className="nav-links"> 
-        <NavLink exact to="/">Home</NavLink>{' '}
-        {/* <NavLink to="/friends">Friends</NavLink>{' '} */}
-        </div>
-        <div>
-        <Link to="/login">Log In</Link>{' '}
-        <Link to="/" onClick={logOut}>Log Out</Link>
-        </div>
-      </nav>
+  render(){
+    return (
+      <Router>
+      <div className="App">
+        <nav className="navigation-bar">
+          <div className="nav-links"> 
+          <NavLink exact to="/">Home</NavLink>{' '}
+          </div>
+          <div>
+            {!this.props.isLoggedIn ? (
+               <Link to="/login">Log In</Link>
+            ) : <Link to="/" onClick={logout}>Log Out</Link> 
+            }
+          </div>
+        </nav>
 
-      <Route exact path='/' component={Home} />
-      <Route path="/login" component={Login} />
-      <PrivateRoute exact path="/friends" component={FriendsPage} />
-    </div>
-    </Router>
-  );
+        <Route exact path='/' component={Home} />
+        <Route path="/login" component={Login} />
+        <PrivateRoute exact path="/friends" component={FriendsPage} />
+      </div>
+      </Router>
+    );
+  }
 }
 
-function logOut() {
+function logout() {
   localStorage.removeItem('token')
+    window.location.reload(true);
 }
 
-export default App;
+const mapStateToProps = state => ({
+    isLoggedIn: state.isLoggedIn
+})
+
+export default connect(mapStateToProps, {} )(App);
