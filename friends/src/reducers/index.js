@@ -5,8 +5,7 @@ import {
     FETCH_FRIENDS_START,
     FETCH_FRIENDS_SUCCESSFUL,
     FETCH_FRIENDS_FAILED,
-    ADD_FRIEND_START,   
-    ADD_FRIEND_SUCCESSFUL
+    ADD_FRIEND
 } from '../actions';
 
 const initialState = {
@@ -54,7 +53,7 @@ const reducer = (state = initialState, action) => {
             friends: action.payload,
             isLoggedIn: true
         }
-        case ADD_FRIEND_START:
+        case ADD_FRIEND:
         return {
             ...state,
             friends: [...state, action.payload]

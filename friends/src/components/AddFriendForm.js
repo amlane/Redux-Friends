@@ -1,15 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux'
+
+import { addFriend } from '../actions';
 
 class AddFriendForm extends React.Component{
-    state = {
-        newFriend: {
-        name: "",
-        age: "",
-        email: ""
-      }
+    constructor(){
+        super();
+        this.state = {
+         newFriend: {
+         name: "",
+         age: "",
+         email: ""
+            }
+        }
     }
-
     handleInput = e => {
+        console.log(e.target.name)
         this.setState({ 
             [e.target.name]: e.target.value
          })
@@ -18,7 +24,8 @@ class AddFriendForm extends React.Component{
     handleSubmit = e => {
         e.preventDefault();
         if(!this.state.newFriend) return;
-        
+        this.props.addFriend(this.state.newFriend)
+        this.setState({ newFriend: '' })
     }
 
     render(){
@@ -51,4 +58,4 @@ class AddFriendForm extends React.Component{
     }
 }
 
-export default AddFriendForm;
+export default connect(null, { addFriend })(AddFriendForm);
