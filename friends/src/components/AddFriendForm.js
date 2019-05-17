@@ -34,8 +34,9 @@ class AddFriendForm extends React.Component{
 
     render(){
         return (
-                <form onSubmit={this.handleSubmit} className="friend-form">
-             <button className="cancel-btn" onClick={this.cancelForm}>x</button>
+            <div className="friend-form">
+            <button className="cancel-btn" onClick={this.cancelForm}>x</button>
+                <form onSubmit={this.handleSubmit}>
                 <h2>Add a new Friend</h2>
                     <input
                     placeholder="name"
@@ -55,8 +56,9 @@ class AddFriendForm extends React.Component{
                     value={this.state.email}
                     onChange={this.handleInput}
                     />
-                    <button className="add-friend">+</button>
+                    <button className="add-friend-btn">+</button>
                 </form>
+                </div>
         )
     }
 }
