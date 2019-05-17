@@ -21,19 +21,6 @@ export const login = creds => dispatch => {
     } )
 }
 
-export const LOG_OUT = 'LOG_OUT';
-export const logout = (creds) => dispatch => {
-    dispatch({ type: LOG_OUT })
-    return axios
-    .post('http://localhost:5000/api/login', creds)
-    .then( res => {
-        localStorage.removeItem("token")
-    } )
-    .catch( err => {
-        console.log(err)
-    } )
-}
-
 export const FETCH_FRIENDS_START = 'FETCH_FRIENDS_START';
 export const FETCH_FRIENDS_SUCCESSFUL = 'FETCH_FRIENDS_SUCCESSFUL';
 export const FETCH_FRIENDS_FAILED = 'FETCH_FRIENDS_FAILED';

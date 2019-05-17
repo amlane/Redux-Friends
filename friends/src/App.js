@@ -6,6 +6,7 @@ import PrivateRoute from './PrivateRoute';
 import Login from './components/Login';
 import Home from './components/HomePage';
 import FriendsPage from './components/FriendsPage';
+import AddFriendForm from './components/AddFriendForm';
 
 // import { logout } from './actions';
 
@@ -19,7 +20,13 @@ class App extends React.Component{
       <div className="App">
         <nav className="navigation-bar">
           <div className="nav-links"> 
-          <NavLink exact to="/">Home</NavLink>{' '}
+          <NavLink exact to="/">Home</NavLink>
+          {this.props.isLoggedIn && (
+            <>
+              <NavLink exact to="/friends">Friends List</NavLink>
+              <NavLink to="/friends/form">Add Friend</NavLink>
+            </>
+          )}
           </div>
           <div>
             {!this.props.isLoggedIn ? (
@@ -31,7 +38,8 @@ class App extends React.Component{
 
         <Route exact path='/' component={Home} />
         <Route path="/login" component={Login} />
-        <PrivateRoute exact path="/friends" component={FriendsPage} />
+        <PrivateRoute path="/friends/form" component={AddFriendForm} />
+        <PrivateRoute path="/friends" component={FriendsPage} />
       </div>
       </Router>
     );

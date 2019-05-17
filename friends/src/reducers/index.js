@@ -2,7 +2,6 @@ import {
     LOGIN_START, 
     LOGIN_SUCCESSFUL, 
     LOGIN_FAILED,
-    LOG_OUT,
     FETCH_FRIENDS_START,
     FETCH_FRIENDS_SUCCESSFUL,
     FETCH_FRIENDS_FAILED
@@ -52,12 +51,6 @@ const reducer = (state = initialState, action) => {
             error: '',
             friends: action.payload,
             isLoggedIn: true
-        }
-        case LOG_OUT: 
-        return {
-            ...state,
-            isLoggedIn: false,
-            error: ''
         }
         default:
         return state;
