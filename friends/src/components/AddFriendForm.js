@@ -2,9 +2,11 @@ import React from 'react';
 
 class AddFriendForm extends React.Component{
     state = {
+        newFriend: {
         name: "",
         age: "",
         email: ""
+      }
     }
 
     handleInput = e => {
@@ -15,7 +17,7 @@ class AddFriendForm extends React.Component{
 
     handleSubmit = e => {
         e.preventDefault();
-        if(!this.state) return;
+        if(!this.state.newFriend) return;
         
     }
 
@@ -27,19 +29,19 @@ class AddFriendForm extends React.Component{
                     <input
                     placeholder="name"
                     name="name"
-                    value={this.state.name}
+                    value={this.state.newFriend.name}
                     onChange={this.handleInput}
                      />
                     <input
                     placeholder="age"
                     name="age"
-                    value={this.state.age}
+                    value={this.state.newFriend.age}
                     onChange={this.handleInput}
                     />
                     <input 
                     placeholder="email"
                     name="email"
-                    value={this.state.email}
+                    value={this.state.newFriend.email}
                     onChange={this.handleInput}
                     />
                     <button>+</button>

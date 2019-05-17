@@ -35,3 +35,18 @@ export const getFriends = () => dispatch => {
     })
     .catch(err => console.log(err))
 }
+
+export const ADD_FRIEND_START = 'ADD_FRIEND_START';
+export const ADD_FRIEND_SUCCESSFUL = 'ADD_FRIEND_SUCCESSFUL';
+export const ADD_FRIEND_FAILED = 'ADD_FRIEND_FAILED';
+
+export const addFriend = (newFriend) => dispatch => {
+    dispatch({ type: ADD_FRIEND_START });
+    return axios
+    .post('http://localhost:5000/api/friends')
+    .then(res => {
+        console.log(res)
+        dispatch({ type: ADD_FRIEND_SUCCESSFUL, payload: newFriend })
+    })
+
+}

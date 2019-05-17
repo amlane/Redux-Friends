@@ -26,6 +26,7 @@
 
 .friend-card {
   border: 1px solid;
+  box-shadow: 0 0 8px gray;
   width: 300px;
   margin: 20px;
   padding: 25px;
@@ -36,5 +37,8 @@ ul {
 }
 
 li {
-  padding: 10px;
+  padding: 13px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid silver;
 }

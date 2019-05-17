@@ -68,7 +68,7 @@ app.post('/api/login', (req, res) => {
     res.status(200).json({
       payload: token
     });
-  }, 3000);
+  }, 2000);
   } else {
     res
       .status(403)
@@ -79,7 +79,7 @@ app.post('/api/login', (req, res) => {
 app.get('/api/friends', authenticator, (req, res) => {
   setTimeout(() => {
     res.send(friends);
-  }, 2000);
+  }, 1000);
 });
 
 app.get('/api/friends/:id', authenticator, (req, res) => {
