@@ -27,9 +27,15 @@ class AddFriendForm extends React.Component{
         window.location.pathname = "/friends"
     }
 
+    cancelForm = e => {
+        e.preventDefault();
+        window.location.pathname = "/friends"
+    }
+
     render(){
         return (
                 <form onSubmit={this.handleSubmit} className="friend-form">
+             <button className="cancel-btn" onClick={this.cancelForm}>x</button>
                 <h2>Add a new Friend</h2>
                     <input
                     placeholder="name"
