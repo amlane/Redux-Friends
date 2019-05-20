@@ -1,0 +1,97 @@
+.App {
+  text-align: center;
+}
+
+.navigation-bar {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.navigation-bar a {
+  padding: 30px;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-links a.active {
+  font-weight: bold;
+}
+
+.friend-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.friend-card {
+  border: 1px solid;
+  box-shadow: 0 0 8px gray;
+  width: 300px;
+  margin: 20px;
+  padding: 25px;
+  background: #FAFAFA;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding: 13px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid silver;
+}
+
+.friend-form {
+  border: 1px solid;
+  box-shadow: 0 0 8px gray;
+  height: 375px;
+  width: 350px;
+  margin: 55px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background: #FAFAFA;
+}
+
+.friend-form input {
+  border: none;
+  border-bottom: 1px solid silver;
+  width: 250px;
+  margin: 15px auto;
+  padding: 5px;
+  background: #FAFAFA;
+  text-align: center;
+}
+
+.friend-form .add-friend-btn {
+  width: 50px;
+  margin: 15px auto;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid;
+  background: #FAFAFA;
+  font-size: 25px;
+  display: block;
+}
+
+.friend-form .cancel-btn {
+  width: 30px;
+  align-self: flex-end;
+  margin-right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+input:focus,
+button:focus {
+  outline: none;
+}
